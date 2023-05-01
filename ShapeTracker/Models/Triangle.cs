@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ShapeTracker.Models 
 {
 public class Triangle 
@@ -5,15 +7,28 @@ public class Triangle
 
     /* SETTING FIELDS TO PRIVATE IS BEST PRACTICE
        Encapsulation (For Secure Data Flow) */
-    private int _side1;  // updated
-    private int _side2;  // updated
-    private int _side3;  // updated
-
+    private int _side1;  
+    private int _side2;  
+    private int _side3;
+    private static List<Triangle> _instances = new List<Triangle> {};
     public Triangle(int length1, int length2, int length3) 
     {
-      _side1 = length1;  // updated
-      _side2 = length2;  // updated
-      _side3 = length3;  // updated
+    _side1 = length1; 
+    _side2 = length2;  
+    _side3 = length3;
+    _instances.Add(this); 
+    }
+
+    // STATIC GETTER METHOD
+    public static List<Triangle> GetAll() 
+    {
+        return _instances;
+    }
+
+    // STATIC SETTER METHOD
+    public static void ClearAll() 
+    {
+        _instances.Clear();
     }
 
     // GETTER METHODS
