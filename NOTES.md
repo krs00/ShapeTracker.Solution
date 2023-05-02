@@ -16,5 +16,7 @@ It's also essential to ensure that we run console commands within the correct pr
 
 Before we move on, remember this — if we resolve a compiler error only to get many, many more compiler errors, that does not automatically mean we're on the wrong track; it just means we've moved on to the next issue in our code.
 
+testing guideline to follow: for each method, there should be a separate test for each possible outcome. 
+
 
 
