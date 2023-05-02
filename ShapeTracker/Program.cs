@@ -26,9 +26,10 @@ namespace ShapeTracker
     // new static method
     static void ConfirmOrEditTriangle(Triangle tri)
     {
-            Console.WriteLine("Please confirm that you entered in your triangle correctly:");
-      Console.WriteLine($"Side 1 has a length of {tri.GetSide1()}.");
-      Console.WriteLine($"Side 2 has a length of {tri.GetSide2()}.");
+             Console.WriteLine("Please confirm that you entered in your triangle correctly:");
+      Console.WriteLine($"Side 1 has a length of {tri.Side1}."); 
+      // updated code below!!
+      Console.WriteLine($"Side 2 has a length of {tri.Side2}.");
       Console.WriteLine($"Side 3 has a length of {tri.GetSide3()}.");
       Console.WriteLine("Is that correct? Enter 'yes' to proceed, or 'no' to re-enter the triangle's sides");
       string userInput = Console.ReadLine();  
@@ -44,11 +45,12 @@ namespace ShapeTracker
         Console.WriteLine("Enter another number:");
         string stringNumber2 = Console.ReadLine();  
         Console.WriteLine("Enter a third number:");
-        string stringNumber3 = Console.ReadLine();  
-        tri.SetSide1(int.Parse(stringNumber1));  
-        tri.SetSide2(int.Parse(stringNumber2));  
+        string stringNumber3 = Console.ReadLine(); 
+        tri.Side1 = int.Parse(stringNumber1); 
+        // updated code below!! 
+        tri.Side2 = int.Parse(stringNumber2);  
         tri.SetSide3(int.Parse(stringNumber3)); 
-        ConfirmOrEditTriangle(tri); 
+        ConfirmOrEditTriangle(tri);
     }
     }
 
@@ -75,3 +77,11 @@ namespace ShapeTracker
 
   }
 }
+
+
+/* In this course section, you should make a point to practice with all of the tools we learned thus far: 
+
+Creating private fields with getter and setter methods.
+Creating private fields with public properties.
+Creating public auto-implemented properties.
+   */
