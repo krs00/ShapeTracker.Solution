@@ -16,12 +16,29 @@ namespace ShapeTracker
       Console.WriteLine("Enter another number:");
       string stringNumber2 = Console.ReadLine();  
       Console.WriteLine("Enter a third number:");
-      string stringNumber3 = Console.ReadLine();  
-      int length1 = int.Parse(stringNumber1);  
-      int length2 = int.Parse(stringNumber2);  
-      int length3 = int.Parse(stringNumber3);  
-      Triangle tri = new Triangle(length1, length2, length3);
-      ConfirmOrEditTriangle(tri);
+      string stringNumber3 = Console.ReadLine(); 
+      //ADD TRY CATCH
+            try
+      {
+        int length1 = int.Parse(stringNumber1);  
+        int length2 = int.Parse(stringNumber2);  
+        int length3 = int.Parse(stringNumber3);
+        Triangle tri = new Triangle(length1, length2, length3);
+        ConfirmOrEditTriangle(tri);  
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        Console.WriteLine("ERROR: {0}", ex.Message);
+        Console.WriteLine("ERROR: Please only enter in numbers! Special symbols and alphabetic characters will not be accepted.");
+        Console.WriteLine("Please try again...");
+        Main();
+      // TRY CATCH END 
+      // int length1 = int.Parse(stringNumber1);  
+      // int length2 = int.Parse(stringNumber2);  
+      // int length3 = int.Parse(stringNumber3);  
+      // Triangle tri = new Triangle(length1, length2, length3);
+      // ConfirmOrEditTriangle(tri);
     }
 
     static void ConfirmOrEditTriangle(Triangle tri)
@@ -118,16 +135,8 @@ namespace ShapeTracker
         Console.WriteLine("Goodbye!");
       }
     }
-
-
-
-
-
-
-
-
-
   }
+}
 }
 
 
