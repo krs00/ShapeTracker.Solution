@@ -19,3 +19,14 @@
 in the testing directory's project file for all future 
 projects, except for the project reference value, which 
 you will need to update. -->
+
+<!-- NAVIGATE TO TEST FOLDER AND RUN
+    $ dotnet restore 
+    
+    This command tells NuGet, a free open source 
+    package manager that comes with .NET, to retrieve 
+    and install the packages we listed in 
+    ShapeTracker.Tests.csproj in our application. This 
+    command automatically creates new obj directories in 
+    both our ShapeTracker and ShapeTracker.Tests project, 
+    each containing multiple files  -->
