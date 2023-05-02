@@ -15,7 +15,7 @@ public class RectangleTests
     }
 
     [TestMethod]
-    public void GetSide1_ReturnsSide1_Int()
+    public void GetSide1_ReturnsSide1_Int() 
     {
         // Arrange
     int length1 = 3;
