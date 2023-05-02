@@ -29,12 +29,12 @@ public class RectangleTests
         [TestMethod]
     public void GetArea_CalculatesAreaOfRectangle_Int()
     {
-        // Arrange
+    // Arrange
     Rectangle newRectangle = new Rectangle(5, 5);
-      // Act
+    // Act
     int result = newRectangle.GetArea();
-      // Assert
-    Assert.AreEqual(result, 25); 
+    // Assert 
+    Assert.AreEqual(result, 25);
     }
 
 }
