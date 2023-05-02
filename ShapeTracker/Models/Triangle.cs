@@ -7,7 +7,12 @@ public class Triangle
 
     /* SETTING FIELDS TO PRIVATE IS BEST PRACTICE
        Encapsulation (For Secure Data Flow) */
-    private int _side1;  
+    private int _side1;
+    public int Side1
+    {
+        get { return _side1; }
+        set { _side1 = value; }
+    }
     private int _side2;  
     private int _side3;
     private static List<Triangle> _instances = new List<Triangle> {};
