@@ -17,19 +17,7 @@ public class Triangle
     _side2 = length2;  
     _side3 = length3;
     _instances.Add(this); 
-    }
-
-    // STATIC GETTER METHOD
-    public static List<Triangle> GetAll() 
-    {
-        return _instances;
-    }
-
-    // STATIC SETTER METHOD
-    public static void ClearAll() 
-    {
-        _instances.Clear();
-    }
+    } 
 
     // GETTER METHODS
     /* Getter methods follow the naming 
@@ -94,6 +82,19 @@ public class Triangle
         return "isosceles triangle";
     }
     }
+
+    public static List<Triangle> GetAll()
+    {
+    return _instances;
+    }
+
+    public static void ClearAll()
+    {
+    _instances.Clear();
+    }
+
+    
+
 }
 }
 
