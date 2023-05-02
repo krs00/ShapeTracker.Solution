@@ -14,3 +14,8 @@
   </ItemGroup>
 
 </Project>
+
+<!-- You can use all of the above code as boilerplate 
+in the testing directory's project file for all future 
+projects, except for the project reference value, which 
+you will need to update. -->
