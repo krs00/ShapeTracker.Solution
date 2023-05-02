@@ -1,15 +1,22 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ShapeTracker.Models;
+using System.Collections.Generic;
+using System;
 
 namespace ShapeTracker.Tests
 {
   [TestClass]
-  public class TriangleTests
+  public class TriangleTests : IDisposable
   {
+    public void Dispose()
+    {
+      Triangle.ClearAll();
+    }
+
     [TestMethod]
     public void TriangleConstructor_CreatesInstanceOfTriangle_Triangle()
     {
-      Triangle newTriangle = new Triangle(2, 3, 8); // Updated!!
+      Triangle newTriangle = new Triangle(2, 3, 8);
       Assert.AreEqual(typeof(Triangle), newTriangle.GetType());
     }
 
@@ -18,7 +25,7 @@ namespace ShapeTracker.Tests
     {
       // Arrange
       int length1 = 3;
-      Triangle newTriangle = new Triangle(length1, 2, 8); // Updated!!
+      Triangle newTriangle = new Triangle(length1, 2, 8);
       // Act
       int result = newTriangle.Side1;
       // Assert
@@ -29,7 +36,7 @@ namespace ShapeTracker.Tests
     public void SetSide1_SetsValueOfSide1_Void()
     {
       // Arrange
-      Triangle newTriangle = new Triangle(3, 3, 8); // Updated!!
+      Triangle newTriangle = new Triangle(3, 3, 8);
       int newLength1 = 44;
       // Act
       newTriangle.Side1 = newLength1;
@@ -42,7 +49,7 @@ namespace ShapeTracker.Tests
     {
       // Arrange
       int length2 = 3;
-      Triangle newTriangle = new Triangle(2, length2, 8); // Updated!!
+      Triangle newTriangle = new Triangle(2, length2, 8);
       // Act
       int result = newTriangle.Side2;
       // Assert
@@ -53,7 +60,7 @@ namespace ShapeTracker.Tests
     public void SetSide2_SetsValueOfSide2_Void()
     {
       // Arrange
-      Triangle newTriangle = new Triangle(3,4, 8); // Updated!!
+      Triangle newTriangle = new Triangle(3,4, 8);
       int newLength2 = 6;
       // Act
       newTriangle.Side2 = newLength2;
@@ -73,7 +80,7 @@ namespace ShapeTracker.Tests
       Assert.AreEqual(length3, result);
     }
 
-        [TestMethod]
+    [TestMethod]
     public void SetSide3_SetsValueOfSide3_Void()
     {
       // Arrange
@@ -85,7 +92,7 @@ namespace ShapeTracker.Tests
       Assert.AreEqual(newLength3, newTriangle.GetSide3());
     }
 
-        [TestMethod]
+    [TestMethod]
     public void CheckType_DeterminesWhenNotATriangle_String()
     {
       // Arrange
@@ -96,7 +103,7 @@ namespace ShapeTracker.Tests
       Assert.AreEqual("not a triangle", triType);
     }
 
-        [TestMethod]
+    [TestMethod]
     public void CheckType_DeterminesWhenScalene_String()
     {
       // Arrange
@@ -107,7 +114,7 @@ namespace ShapeTracker.Tests
       Assert.AreEqual("scalene triangle", triType);
     }
 
-        [TestMethod]
+    [TestMethod]
     public void CheckType_DeterminesWhenIsosceles_String()
     {
       // Arrange
@@ -118,7 +125,7 @@ namespace ShapeTracker.Tests
       Assert.AreEqual("isosceles triangle", triType);
     }
 
-        [TestMethod]
+    [TestMethod]
     public void CheckType_DeterminesWhenEquilateral_String()
     {
       // Arrange
@@ -129,5 +136,32 @@ namespace ShapeTracker.Tests
       Assert.AreEqual("equilateral triangle", triType);
     }
 
+    [TestMethod]
+    public void GetAll_ReturnsAllTriangleInstances_List()
+    {
+      // Arrange
+      Triangle tri1 = new Triangle(2, 2, 9);
+      Triangle tri2 = new Triangle(21, 3, 9);
+      Triangle tri3 = new Triangle(1, 3, 9);
+      List<Triangle> expected = new List<Triangle> { tri1, tri2, tri3 };
+      // Act
+      List<Triangle> actualResult = Triangle.GetAll();
+      // Assert
+      CollectionAssert.AreEqual(expected, actualResult);
+    }
+
+    [TestMethod]
+    public void ClearAll_DeletesAllTriangleInList_Void()
+    {
+      // Arrange
+      Triangle tri1 = new Triangle(2, 2, 9);
+      Triangle tri2 = new Triangle(21, 3, 9);
+      Triangle tri3 = new Triangle(1, 3, 9);
+      List<Triangle> expected = new List<Triangle> { };
+      // Act
+      Triangle.ClearAll();
+      // Assert
+      CollectionAssert.AreEqual(expected, Triangle.GetAll());
+    }
   }
 }
